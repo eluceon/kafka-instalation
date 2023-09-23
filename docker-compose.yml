@@ -43,8 +43,8 @@ services:
     image: confluentinc/cp-kafka:latest
     depends_on:
       - broker
-    command: "bash -c '-echo Waiting for kafka to be ready... &&
-          cub kafka-ready -b $${KAFKA_BROKER} 1 20 &&
+    command: "bash -c 'echo Waiting for kafka to be ready... && \
+          cub kafka-ready -b $${KAFKA_BROKER} 1 20 && \
           kafka-topics --create --if-not-exists \
           --bootstrap-server $${KAFKA_BROKER} \
           --partitions $${KAFKA_PARTITIONS} --replication-factor 1 --topic $${KAFKA_SERVICE_TOPIC}'"
